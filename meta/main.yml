@@ -1,0 +1,22 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: install-terraform-proxmox-provider
+  author: nikobraz
+  description: Istaller for https://github.com/Telmate/terraform-provider-proxmox
+  min_ansible_version: 2.4
+  platforms:
+    - name: Centos
+      versions:
+        - 7
+    - name: Ubuntu
+      versions:
+        - trusty
+        - xenial
+        - bionic
+        - focal
+  galaxy_tags:
+    - terraform
+
+allow_duplicates: true
