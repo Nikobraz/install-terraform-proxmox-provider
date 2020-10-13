@@ -4,7 +4,7 @@ dependencies: []
 galaxy_info:
   role_name: install-terraform-proxmox-provider
   author: nikobraz
-  description: Istaller for https://github.com/Telmate/terraform-provider-proxmox
+  description: Installer for https://github.com/Telmate/terraform-provider-proxmox
   license: "license (BSD, MIT)"
   min_ansible_version: 2.4
   platforms:
