@@ -1,5 +1,6 @@
 # install-terraform-proxmox-provider
 
+```
 terraform {
   required_providers {
     proxmox = {
@@ -9,3 +10,4 @@ terraform {
   }
   required_version = ">= 0.13"
 }
+```
