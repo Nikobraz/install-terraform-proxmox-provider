@@ -1,13 +1,14 @@
 - name: Install make
   package:
-    name: make
-    state: latest
+    name: make=4.3
+    state: present
 
 - name: Clone git
   ignore_errors: yes
   git:
     repo: https://github.com/Telmate/terraform-provider-proxmox.git
     dest: /tmp/terraform-provider-proxmox
+    version: master
     clone: yes
     update: yes
 
@@ -97,8 +98,8 @@
     - name: Install Terraform Ubuntu
       become: yes
       apt:
-        name: terraform
-        state: latest
+        name: terraform=0.13
+        state: present
         force_apt_get: yes
   when: ansible_distribution == "Ubuntu"
 
@@ -109,8 +110,8 @@
     - name: Install Terraform
       become: yes
       package:
-        name: terraform
-        state: latest
+        name: terraform=0.13
+        state: present
   when: ansible_distribution == "CentOS"
 
 - name: Enable autocomplete
