@@ -40,16 +40,22 @@
 
 - name: Export
   command: /bin/bash -c 'source /etc/profile.d/go.sh'
+  register: result
+  changed_when: "result.rc != 2"
 
 - name: Install dependencies
   command: /usr/local/go/bin/go install github.com/Telmate/terraform-provider-proxmox/cmd/terraform-provider-proxmox
   args:
     chdir: /tmp/terraform-provider-proxmox/
+  register: result
+  changed_when: "result.rc != 2"
 
 - name: Install dependencies
   command: /usr/local/go/bin/go install github.com/Telmate/terraform-provider-proxmox/cmd/terraform-provisioner-proxmox
   args:
     chdir: /tmp/terraform-provider-proxmox/
+  register: result
+  changed_when: "result.rc != 2"
 
 - name: Compile terraform-provider-proxmox
   environment:
@@ -57,6 +63,8 @@
   command: /bin/make
   args:
     chdir: /tmp/terraform-provider-proxmox/
+  register: result
+  changed_when: "result.rc != 2"
 
 - name: Create a directory if it does not exist
   file:
@@ -117,3 +125,5 @@
 - name: Enable autocomplete
   ignore_errors: yes
   command: terraform -install-autocomplete
+  register: result
+  changed_when: "result.rc != 2"
