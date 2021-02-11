@@ -1,6 +1,6 @@
 - name: Install make
   package:
-    name: make=4.3
+    name: make
     state: present
 
 - name: Clone git
