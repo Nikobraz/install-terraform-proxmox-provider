@@ -50,12 +50,12 @@
   register: result
   changed_when: "result.rc != 2"
 
-- name: Install dependencies
-  command: /usr/local/go/bin/go install github.com/Telmate/terraform-provider-proxmox/cmd/terraform-provisioner-proxmox
-  args:
-    chdir: /tmp/terraform-provider-proxmox/
-  register: result
-  changed_when: "result.rc != 2"
+#- name: Install dependencies
+#  command: /usr/local/go/bin/go install github.com/Telmate/terraform-provider-proxmox/cmd/terraform-provisioner-proxmox
+#  args:
+#    chdir: /tmp/terraform-provider-proxmox/
+#  register: result
+#  changed_when: "result.rc != 2"
 
 - name: Compile terraform-provider-proxmox
   environment:
