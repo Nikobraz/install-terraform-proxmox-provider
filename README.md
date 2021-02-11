@@ -1,4 +1,4 @@
-# install-terraform-proxmox-provider
+### install-terraform-proxmox-provider
 
 ```
 Install:
@@ -9,9 +9,10 @@ cat > install.yml <<EOL
   roles:
   - role: nikobraz.install_terraform_proxmox_provider
 EOL
+ansible-playbook -i hosts install.yml
 ```
 
-# Write terraform
+### Write terraform
 ```
 cat > main.tf <<EOL
 terraform {
