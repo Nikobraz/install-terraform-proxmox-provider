@@ -50,13 +50,6 @@
   register: result
   changed_when: "result.rc != 2"
 
-#- name: Install dependencies
-#  command: /usr/local/go/bin/go install github.com/Telmate/terraform-provider-proxmox/cmd/terraform-provisioner-proxmox
-#  args:
-#    chdir: /tmp/terraform-provider-proxmox/
-#  register: result
-#  changed_when: "result.rc != 2"
-
 - name: Compile terraform-provider-proxmox
   environment:
     PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/usr/local/go/bin
@@ -68,20 +61,14 @@
 
 - name: Create a directory if it does not exist
   file:
-    path: ~/.terraform.d/plugins/local/provider/proxmox/1.0.0/linux_amd64/
+    path: ~/.terraform.d/plugins/local/provider/proxmox/2.0.0/linux_amd64/
     state: directory
     mode: '0755'
 
 - name: Copy terraform-provider-proxmox
   copy:
-    src: /tmp/terraform-provider-proxmox/bin/terraform-provider-proxmox
-    dest: ~/.terraform.d/plugins/local/provider/proxmox/1.0.0/linux_amd64/terraform-provider-proxmox
-    remote_src: yes
-
-- name: Copy terraform-provisioner-proxmox
-  copy:
-    src: /tmp/terraform-provider-proxmox/bin/terraform-provisioner-proxmox
-    dest: ~/.terraform.d/plugins/local/provider/proxmox/1.0.0/linux_amd64/terraform-provisioner-proxmox
+    src: /tmp/terraform-provider-proxmox/bin/terraform-provider-proxmox_v2.0.0
+    dest: ~/.terraform.d/plugins/local/provider/proxmox/2.0.0/linux_amd64/terraform-provider-proxmox
     remote_src: yes
 
 - block:
