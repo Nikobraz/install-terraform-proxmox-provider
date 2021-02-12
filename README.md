@@ -1,7 +1,6 @@
-### install-terraform-proxmox-provider
+### Install install-terraform-proxmox-provider
 
-```
-Install:
+```bash
 ansible-galaxy install nikobraz.install_terraform_proxmox_provider
 cat > install.yml <<EOL
 ---
@@ -12,8 +11,8 @@ EOL
 ansible-playbook -i hosts install.yml
 ```
 
-### Write terraform
-```
+### Write terraform script
+```terraform
 cat > main.tf <<EOL
 terraform {
   required_providers {
